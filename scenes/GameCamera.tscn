@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://ieeynxjuyfnb"]
+
+[ext_resource type="Script" path="res://scenes/level/GameCamera.cs" id="1_b8l7a"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_4yhqn"]
+seed = 36
+frequency = 0.75
+
+[node name="GameCamera" type="Camera2D"]
+script = ExtResource("1_b8l7a")
+shakeNoise = SubResource("FastNoiseLite_4yhqn")

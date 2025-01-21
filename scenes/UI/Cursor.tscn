@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bxfttbbfu4lk2"]
+
+[ext_resource type="Script" path="res://scenes/UI/Cursor.cs" id="1_bxwl6"]
+[ext_resource type="Texture2D" uid="uid://d32toxdhf3yq3" path="res://assets/cursor.png" id="2_eqs80"]
+
+[node name="Cursor" type="CanvasLayer"]
+layer = 10
+script = ExtResource("1_bxwl6")
+
+[node name="Node2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_eqs80")
+centered = false
+offset = Vector2(-24, -19)

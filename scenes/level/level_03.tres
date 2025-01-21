@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="LevelDefinitionResource" load_steps=2 format=3 uid="uid://ctg4aabhbpt48"]
+
+[ext_resource type="Script" path="res://scenes/level/LevelDefinitionResource.cs" id="1_rtbwm"]
+
+[resource]
+script = ExtResource("1_rtbwm")
+Id = "PJ7$wyPjaacA"
+StartingResourceCount = 6
+levelScenePath = "res://scenes/level/Level3.tscn"

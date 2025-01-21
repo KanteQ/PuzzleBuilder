@@ -1,0 +1,17 @@
+[gd_scene load_steps=6 format=3 uid="uid://bq6ck3w3p7lfj"]
+
+[ext_resource type="Script" path="res://scenes/component/BuildingAnimatorComponent.cs" id="1_ho440"]
+[ext_resource type="PackedScene" uid="uid://d0jdfm3o6bh46" path="res://assets/effects/BuildingImpactParticles.tscn" id="2_fyj5u"]
+[ext_resource type="Texture2D" uid="uid://dn61af3pqgvim" path="res://buildings/building_mask.png" id="2_ufl2a"]
+[ext_resource type="PackedScene" uid="uid://j5xxgrbtogit" path="res://assets/effects/BuildingDestroyParticles.tscn" id="3_ktr6x"]
+[ext_resource type="AudioStream" uid="uid://bbk1ea172vkew" path="res://assets/audio/thud.wav" id="5_0ydwn"]
+
+[node name="BuildingAnimatiorComponent" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_ho440")
+impactParticlesScene = ExtResource("2_fyj5u")
+destroyParticlesScene = ExtResource("3_ktr6x")
+maskTexture = ExtResource("2_ufl2a")
+
+[node name="ImpactAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_0ydwn")

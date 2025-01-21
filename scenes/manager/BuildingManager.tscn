@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://coucdgfal13ix"]
+
+[ext_resource type="Script" path="res://scenes/manager/BuildingManager.cs" id="1_lwchc"]
+[ext_resource type="PackedScene" uid="uid://djggxx0mwai8" path="res://scenes/building/BuildingGhost.tscn" id="2_ujwgk"]
+
+[node name="BuildingManager" type="Node"]
+script = ExtResource("1_lwchc")
+buildingGhostScene = ExtResource("2_ujwgk")

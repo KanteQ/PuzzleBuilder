@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://cxyylbphomwm8"]
+
+[ext_resource type="PackedScene" uid="uid://blv6jopocrwd0" path="res://scenes/component/BuildingComponent.tscn" id="1_d6qtu"]
+[ext_resource type="PackedScene" uid="uid://bq6ck3w3p7lfj" path="res://scenes/component/BuildingAnimatorComponent.tscn" id="2_2531t"]
+[ext_resource type="PackedScene" uid="uid://bgi21fee75m3u" path="res://scenes/building/sprite/VillageSprite2D.tscn" id="2_ox2tv"]
+
+[node name="Village" type="Node2D"]
+y_sort_enabled = true
+
+[node name="BuildingComponent" parent="." node_paths=PackedStringArray("buildingAnimatorComponent") instance=ExtResource("1_d6qtu")]
+y_sort_enabled = true
+buildingResourcePath = "res://resources/building/village.tres"
+buildingAnimatorComponent = NodePath("../BuildingAnimatiorComponent")
+
+[node name="BuildingAnimatiorComponent" parent="." instance=ExtResource("2_2531t")]
+y_sort_enabled = true
+
+[node name="VillageSprite2D" parent="BuildingAnimatiorComponent" instance=ExtResource("2_ox2tv")]
+position = Vector2(64, 36)

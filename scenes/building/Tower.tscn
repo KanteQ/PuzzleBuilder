@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://cwbu1bktkuhno"]
+
+[ext_resource type="PackedScene" uid="uid://blv6jopocrwd0" path="res://scenes/component/BuildingComponent.tscn" id="1_y88t5"]
+[ext_resource type="PackedScene" uid="uid://dyqejkvpbi60y" path="res://scenes/building/sprite/TowerSprite2D.tscn" id="2_5edw5"]
+[ext_resource type="PackedScene" uid="uid://bq6ck3w3p7lfj" path="res://scenes/component/BuildingAnimatorComponent.tscn" id="2_8bshf"]
+
+[node name="Tower" type="Node2D"]
+y_sort_enabled = true
+
+[node name="BuildingComponent" parent="." node_paths=PackedStringArray("buildingAnimatorComponent") instance=ExtResource("1_y88t5")]
+y_sort_enabled = true
+buildingResourcePath = "res://resources/building/tower.tres"
+buildingAnimatorComponent = NodePath("../BuildingAnimatiorComponent")
+
+[node name="BuildingAnimatiorComponent" parent="." instance=ExtResource("2_8bshf")]
+
+[node name="TowerSprite2D" parent="BuildingAnimatiorComponent" instance=ExtResource("2_5edw5")]
+y_sort_enabled = true
+position = Vector2(64, 64)

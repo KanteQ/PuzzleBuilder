@@ -1,0 +1,63 @@
+[gd_scene load_steps=8 format=3 uid="uid://bveqkkgspt3lj"]
+
+[ext_resource type="Script" path="res://scenes/UI/GameUI.cs" id="1_v50rs"]
+[ext_resource type="Resource" uid="uid://oonak24mvk8f" path="res://resources/building/tower.tres" id="2_yju1b"]
+[ext_resource type="Resource" uid="uid://gj60rv134lcp" path="res://resources/building/village.tres" id="3_chkqk"]
+[ext_resource type="Resource" uid="uid://dgmdetd7aa7j7" path="res://resources/building/barracks.tres" id="4_601cj"]
+[ext_resource type="PackedScene" uid="uid://6klhnmibkt2x" path="res://scenes/UI/BuildingSection.tscn" id="4_bhjcw"]
+[ext_resource type="Texture2D" uid="uid://blwvmuhbqfdfh" path="res://wood_icon.png" id="5_2gm1a"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7qnrm"]
+atlas = ExtResource("5_2gm1a")
+region = Rect2(38.8624, 75.6266, 33.0362, 26.5726)
+
+[node name="GameUI" type="CanvasLayer"]
+script = ExtResource("1_v50rs")
+buildingResources = Array[Object]([ExtResource("3_chkqk"), ExtResource("2_yju1b"), ExtResource("4_601cj")])
+buildingSectionScene = ExtResource("4_bhjcw")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = 1.0
+offset_right = -1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+texture = SubResource("AtlasTexture_7qnrm")
+stretch_mode = 3
+
+[node name="ResourceLabel" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0.00315567, 0.014398, 0.00982687, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_font_sizes/font_size = 48
+text = "4"
+
+[node name="BuildingSectionContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 15

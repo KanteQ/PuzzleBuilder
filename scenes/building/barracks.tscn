@@ -1,0 +1,21 @@
+[gd_scene load_steps=6 format=3 uid="uid://xxy6cx8fjhnd"]
+
+[ext_resource type="PackedScene" uid="uid://blv6jopocrwd0" path="res://scenes/component/BuildingComponent.tscn" id="1_wvvkq"]
+[ext_resource type="PackedScene" uid="uid://c3746ce3r1p6f" path="res://BarracksSprite2d.tscn" id="3_0rye8"]
+[ext_resource type="PackedScene" uid="uid://d2pdxm6mjhx3g" path="res://assets/effects/BarracksImpactParticles.tscn" id="3_65ngn"]
+[ext_resource type="PackedScene" uid="uid://bq6ck3w3p7lfj" path="res://scenes/component/BuildingAnimatorComponent.tscn" id="3_hu625"]
+[ext_resource type="PackedScene" uid="uid://ch0wfdan5ps6l" path="res://assets/effects/BarracksDestroyParticles.tscn" id="4_lgv0u"]
+
+[node name="Barracks" type="Node2D"]
+y_sort_enabled = true
+
+[node name="BuildingComponent" parent="." node_paths=PackedStringArray("buildingAnimatorComponent") instance=ExtResource("1_wvvkq")]
+buildingResourcePath = "res://resources/building/barracks.tres"
+buildingAnimatorComponent = NodePath("../BuildingAnimatiorComponent")
+
+[node name="BuildingAnimatiorComponent" parent="." instance=ExtResource("3_hu625")]
+impactParticlesScene = ExtResource("3_65ngn")
+destroyParticlesScene = ExtResource("4_lgv0u")
+
+[node name="BarracksSprite2D" parent="BuildingAnimatiorComponent" instance=ExtResource("3_0rye8")]
+position = Vector2(160, 75)
