@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="BuildingResource" load_steps=4 format=3 uid="uid://gj60rv134lcp"]
+
+[ext_resource type="PackedScene" uid="uid://cxyylbphomwm8" path="res://scenes/building/Village.tscn" id="1_h1x41"]
+[ext_resource type="Script" path="res://resources/building/BuildingResource.cs" id="1_qos25"]
+[ext_resource type="PackedScene" uid="uid://bgi21fee75m3u" path="res://scenes/building/sprite/VillageSprite2D.tscn" id="2_lpg11"]
+
+[resource]
+script = ExtResource("1_qos25")
+DisplayName = "Village"
+Dimensions = Vector2i(2, 2)
+Description = "Gathers wood"
+IsBase = false
+IsDeletable = true
+BuildableRadius = 0
+ResourceCost = 2
+ResourceRadius = 3
+DangerRadius = 0
+BuildingScene = ExtResource("1_h1x41")
+SpriteScene = ExtResource("2_lpg11")
+AttackRadius = 0
