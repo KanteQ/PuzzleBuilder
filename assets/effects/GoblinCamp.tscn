@@ -1,0 +1,145 @@
+[gd_scene load_steps=21 format=3 uid="uid://ddtttt8aqymw0"]
+
+[ext_resource type="PackedScene" uid="uid://blv6jopocrwd0" path="res://scenes/component/BuildingComponent.tscn" id="1_6e5ia"]
+[ext_resource type="Script" path="res://assets/effects/GoblinCamp.cs" id="1_ysdev"]
+[ext_resource type="AudioStream" uid="uid://dpjl6qb5ftbl8" path="res://assets/audio/poof.wav" id="2_foy2o"]
+[ext_resource type="PackedScene" uid="uid://bq6ck3w3p7lfj" path="res://scenes/component/BuildingAnimatorComponent.tscn" id="2_yeshj"]
+[ext_resource type="Texture2D" uid="uid://dtvoxgbu8t5kp" path="res://buildings/wood_tower_red.png" id="3_26ax1"]
+[ext_resource type="Texture2D" uid="uid://gt27dbr82wd0" path="res://ui/Wood_Tower_Destroyed.png" id="4_5gxj1"]
+[ext_resource type="Texture2D" uid="uid://ccv0jf2qx33j8" path="res://ui/Fire.png" id="5_jymo0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xgjjx"]
+atlas = ExtResource("3_26ax1")
+region = Rect2(0, 0, 256, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_01ulq"]
+atlas = ExtResource("3_26ax1")
+region = Rect2(256, 0, 256, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qg4yp"]
+atlas = ExtResource("3_26ax1")
+region = Rect2(512, 0, 256, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uy5t7"]
+atlas = ExtResource("3_26ax1")
+region = Rect2(768, 0, 256, 192)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8jecr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xgjjx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_01ulq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qg4yp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uy5t7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_5gxj1")
+}],
+"loop": true,
+"name": &"destroyed",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xy78w"]
+atlas = ExtResource("5_jymo0")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sdesg"]
+atlas = ExtResource("5_jymo0")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3v41e"]
+atlas = ExtResource("5_jymo0")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dm7ox"]
+atlas = ExtResource("5_jymo0")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6w2ch"]
+atlas = ExtResource("5_jymo0")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qhbeo"]
+atlas = ExtResource("5_jymo0")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_87x8w"]
+atlas = ExtResource("5_jymo0")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_is10p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xy78w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sdesg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3v41e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dm7ox")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6w2ch")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qhbeo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_87x8w")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
+
+[node name="GoblinCamp" type="Node2D" node_paths=PackedStringArray("buildingComponent", "fireAnimatedSprite2D", "animatedSprite2D")]
+y_sort_enabled = true
+script = ExtResource("1_ysdev")
+buildingComponent = NodePath("BuildingComponent")
+fireAnimatedSprite2D = NodePath("BuildingAnimatiorComponent/AnimatedSprite2D/FireAnimatedSprite2D")
+animatedSprite2D = NodePath("BuildingAnimatiorComponent/AnimatedSprite2D")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_foy2o")
+bus = &"SFX"
+
+[node name="BuildingComponent" parent="." node_paths=PackedStringArray("buildingAnimatorComponent") instance=ExtResource("1_6e5ia")]
+y_sort_enabled = true
+buildingResourcePath = "res://resources/building/goblin_camp.tres"
+buildingAnimatorComponent = NodePath("../BuildingAnimatiorComponent")
+
+[node name="BuildingAnimatiorComponent" parent="." instance=ExtResource("2_yeshj")]
+y_sort_enabled = false
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="BuildingAnimatiorComponent"]
+unique_name_in_owner = true
+position = Vector2(64, 96)
+sprite_frames = SubResource("SpriteFrames_8jecr")
+autoplay = "default"
+centered = false
+offset = Vector2(-128, -160)
+
+[node name="FireAnimatedSprite2D" type="AnimatedSprite2D" parent="BuildingAnimatiorComponent/AnimatedSprite2D"]
+unique_name_in_owner = true
+visible = false
+position = Vector2(0, -32)
+sprite_frames = SubResource("SpriteFrames_is10p")
+autoplay = "default"
+frame_progress = 0.237711
