@@ -1,0 +1,36 @@
+[gd_scene load_steps=9 format=3 uid="uid://c36x8uk0h31n"]
+
+[ext_resource type="Script" path="res://AudioHelpers.cs" id="1_pjst7"]
+[ext_resource type="AudioStream" uid="uid://bru7vxcihwhh0" path="res://assets/audio/explosion_01.wav" id="2_hw46n"]
+[ext_resource type="AudioStream" uid="uid://bfka35sx51kcb" path="res://assets/audio/Dancing at the Inn.mp3" id="2_lhdan"]
+[ext_resource type="AudioStream" uid="uid://bpq40inpdobwg" path="res://assets/audio/explosion_02.wav" id="3_tgwr3"]
+[ext_resource type="AudioStream" uid="uid://chaxht7v2wogl" path="res://assets/audio/explosion_03.wav" id="4_n4tob"]
+[ext_resource type="AudioStream" uid="uid://xvngx0ohom5j" path="res://assets/audio/click.wav" id="5_8a187"]
+[ext_resource type="AudioStream" uid="uid://db2ev0e2lh8sy" path="res://assets/audio/victory.wav" id="6_yken3"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_fj0vb"]
+streams_count = 3
+stream_0/stream = ExtResource("2_hw46n")
+stream_1/stream = ExtResource("3_tgwr3")
+stream_2/stream = ExtResource("4_n4tob")
+
+[node name="AudioHelpers" type="Node"]
+script = ExtResource("1_pjst7")
+
+[node name="MusicAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_lhdan")
+volume_db = -15.0
+autoplay = true
+bus = &"Music"
+
+[node name="ExpolsionAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_fj0vb")
+bus = &"SFX"
+
+[node name="ClickAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_8a187")
+bus = &"SFX"
+
+[node name="VictoryAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_yken3")
+bus = &"SFX"

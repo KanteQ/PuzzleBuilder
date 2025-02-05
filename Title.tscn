@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://bds2ew0bfihub"]
+
+[ext_resource type="Texture2D" uid="uid://bmbxmbfxckqsf" path="res://downloads/Tiny+Swords/Tiny Swords (Update 010)/UI/Ribbons/Ribbon_Blue_3Slides.png" id="1_bk63u"]
+[ext_resource type="FontFile" uid="uid://cof2cvm0sjh5g" path="res://Birthstone-Regular.ttf" id="1_ca1m1"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_0jctm"]
+line_spacing = 5.0
+font = ExtResource("1_ca1m1")
+font_size = 20
+font_color = Color(0.935318, 0, 0.0282782, 1)
+
+[node name="Node" type="Node"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(64, 64)
+texture = ExtResource("1_bk63u")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 7.0
+offset_top = 39.0
+offset_right = 276.0
+offset_bottom = 127.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Gold Miner Puzzles"
+label_settings = SubResource("LabelSettings_0jctm")

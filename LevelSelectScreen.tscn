@@ -1,0 +1,76 @@
+[gd_scene load_steps=3 format=3 uid="uid://kvr3xl84yoci"]
+
+[ext_resource type="Script" path="res://scenes/UI/LevelSelectScreen.cs" id="1_pq1cp"]
+[ext_resource type="PackedScene" uid="uid://b2fgpnmoa6lqq" path="res://LevelSelectSelection.tscn" id="2_cxd43"]
+
+[node name="LevelSelectScreen" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 18
+theme_override_constants/margin_top = 18
+theme_override_constants/margin_right = 18
+theme_override_constants/margin_bottom = 18
+script = ExtResource("1_pq1cp")
+levelSelectSectionScene = ExtResource("2_cxd43")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="PreviousPageButton" type="Button" parent="HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+text = "Previous Page"
+
+[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="GridContainer" type="GridContainer" parent="HBoxContainer/PanelContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+columns = 3
+
+[node name="LevelSelectSelection" parent="HBoxContainer/PanelContainer/MarginContainer/GridContainer" instance=ExtResource("2_cxd43")]
+layout_mode = 2
+
+[node name="LevelSelectSelection2" parent="HBoxContainer/PanelContainer/MarginContainer/GridContainer" instance=ExtResource("2_cxd43")]
+layout_mode = 2
+
+[node name="LevelSelectSelection3" parent="HBoxContainer/PanelContainer/MarginContainer/GridContainer" instance=ExtResource("2_cxd43")]
+layout_mode = 2
+
+[node name="LevelSelectSelection4" parent="HBoxContainer/PanelContainer/MarginContainer/GridContainer" instance=ExtResource("2_cxd43")]
+layout_mode = 2
+
+[node name="LevelSelectSelection5" parent="HBoxContainer/PanelContainer/MarginContainer/GridContainer" instance=ExtResource("2_cxd43")]
+layout_mode = 2
+
+[node name="LevelSelectSelection6" parent="HBoxContainer/PanelContainer/MarginContainer/GridContainer" instance=ExtResource("2_cxd43")]
+layout_mode = 2
+
+[node name="NextPageButton" type="Button" parent="HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+text = "Next Page"
+
+[node name="BackButton" type="Button" parent="."]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+text = "Back
+"

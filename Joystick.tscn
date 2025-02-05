@@ -1,0 +1,56 @@
+[gd_scene load_steps=8 format=3 uid="uid://covb3n3si0b2"]
+
+[ext_resource type="Script" path="res://Joystic.cs" id="1_6f8jt"]
+[ext_resource type="Texture2D" uid="uid://dt13r06u87fib" path="res://addons/virtual_joystick/textures/joystick_tip_arrows.png" id="3_x3vuu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n4xd3"]
+atlas = ExtResource("3_x3vuu")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mn6an"]
+atlas = ExtResource("3_x3vuu")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_88ls7"]
+atlas = ExtResource("3_x3vuu")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lgbqb"]
+atlas = ExtResource("3_x3vuu")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d71bg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n4xd3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mn6an")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_88ls7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lgbqb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Joystic" type="Node2D"]
+y_sort_enabled = true
+position = Vector2(1152, 640)
+script = ExtResource("1_6f8jt")
+
+[node name="Node2D" type="Camera2D" parent="."]
+y_sort_enabled = true
+position = Vector2(1.52588e-05, 0)
+scale = Vector2(0.5, 0.5)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Node2D"]
+y_sort_enabled = true
+sprite_frames = SubResource("SpriteFrames_d71bg")
+autoplay = "default"
+frame_progress = 0.819208
